@@ -4,6 +4,9 @@ const sizeOptionsButtons = document.querySelectorAll(".size-options input");
 const colorOptionsButtons = document.querySelectorAll("#color-selection input");
 const colorListTitle = document.querySelector("#options h2:first-child");
 const miniatureImage = document.querySelectorAll("#select-img img");
+const mobileMenu = document.querySelector(".mobile-menu");
+const menuBackground = document.querySelector(".menu");
+const body = document.querySelector("body");
 
 
 const sizes = ['41 mm', '45 mm'];
@@ -32,7 +35,7 @@ function updateColor(){
     miniatureImage[0].src = "./imagens/opcoes-cores/imagens-"+ colorName +"/imagem-0.jpeg";
     miniatureImage[1].src = "./imagens/opcoes-cores/imagens-"+ colorName + "/imagem-1.jpeg";
     miniatureImage[2].src = "./imagens/opcoes-cores/imagens-"+ colorName + "/imagem-2.jpeg";
-}
+};
  
 
 function updateSelectedImg(){
@@ -71,3 +74,15 @@ sizeOptionsButtons.forEach(input => {
 colorOptionsButtons.forEach(input => {
     input.addEventListener("click", updateColor)
 });
+
+
+function openMenu(){
+    body.classList.add("open-menu");
+};
+
+function closeMenu(){
+    body.classList.remove("open-menu");
+};
+
+mobileMenu.addEventListener("click", openMenu);
+menuBackground.addEventListener("click", closeMenu);

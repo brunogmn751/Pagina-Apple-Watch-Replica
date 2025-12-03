@@ -21,9 +21,19 @@ body {
   flex-flow: column;
   gap: 4.8rem;
   align-items: strech;
-  max-width: 100rem;
+  max-width: 108rem;
   margin: 0 auto;
+  padding: 0 4rem;
+
+  &.open-menu {
+      overflow: hidden;
+
+    & .menu {
+      display: grid;
+    }
+  }
 }
+
 
 h2 {
   font-size: 1.76rem;
@@ -38,7 +48,7 @@ ul {
 }
 
 .smaller {
-  transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .text {
@@ -59,6 +69,12 @@ ul {
 }
 
 nav {
+  width: 100%;
+
+  & .mobile-logo {
+    display: none;
+  }
+
   & ul {
     display: flex;
     justify-content: space-between;
@@ -66,6 +82,11 @@ nav {
     font-size: small;
     & li {
       cursor: pointer;
+      line-height: 0.5;
+
+      &.mobile-menu {
+        display: none;
+      }
     }
   }
 }
@@ -89,10 +110,10 @@ nav {
       & p:first-child {
         font-size: 1.76rem;
       }
-              & p,
-        a {
-          font-size: 1.28rem;
-        }
+      & p,
+      a {
+        font-size: 1.28rem;
+      }
     }
 
     #options {
@@ -152,7 +173,7 @@ nav {
           border: solid 0.2rem rgb(165, 165, 165);
           border-radius: 1rem;
           margin: 1rem 0;
-          cursor:pointer;
+          cursor: pointer;
         }
 
         & input[type="radio"]:checked + label {
@@ -162,39 +183,38 @@ nav {
 
       & .size-text {
         margin: 0.5rem 0 2rem 0;
-
       }
 
-      & .bracelet-size{
-        margin-top:1rem;
+      & .bracelet-size {
+        margin-top: 1rem;
 
-        & p:nth-child(2){
-          color:grey;
+        & p:nth-child(2) {
+          color: grey;
         }
       }
 
-      & .delivery-info{
-        display:flex; 
-        margin:3rem 0;
+      & .delivery-info {
+        display: flex;
+        margin: 3rem 0;
         gap: 1rem;
       }
 
-      & #add-to-cart{
+      & #add-to-cart {
         font-size: 1.76rem;
-        color:white;
-        background-color:#0071E3;
+        color: white;
+        background-color: #0071e3;
         font-family: "San Francisco";
         border: none;
-        padding: .75rem 0;
+        padding: 0.75rem 0;
         border-radius: 1rem;
-        cursor:pointer;
+        cursor: pointer;
       }
 
-      & .save-selection{
+      & .save-selection {
         margin: 3rem 0;
-        display:flex;
-        flex-flow:column;
-        gap: .5rem;
+        display: flex;
+        flex-flow: column;
+        gap: 0.5rem;
 
         & p,
         a {
@@ -202,33 +222,120 @@ nav {
         }
       }
     }
-  
-    
   }
-  & #visualization{
-    display:flex;
-    flex-flow:column;
-    align-items:center;
+  & #visualization {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
 
-    & #select-img{
-      display:flex;
-      justify-content:center;
-      gap: .75rem;
+    & #visualization-img {
+      width: 100%;
+    }
 
-      & label > img{
-        width:5rem;
-        padding: .5rem;
+    & #select-img {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+
+      & label > img {
+        width: 5rem;
+        padding: 0.5rem;
         padding-bottom: 1rem;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
           border-bottom: solid 2px rgb(190, 190, 190);
         }
-
       }
-      & input[type="radio"]:checked + label>img{
+      & input[type="radio"]:checked + label > img {
         border-bottom: solid 2px #8caccc;
       }
     }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.801);
+  backdrop-filter: blur(0.5rem);
+  display: none;
+  place-items: center;
+
+
+  & ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 0 0 0.5rem 0.2rem rgba(0, 0, 0, 0.137);
+
+    & li {
+      border-bottom: solid 1px rgb(207, 207, 207);
+      padding: 0.75rem 0;
+    }
+
+    & li:last-child {
+      border-bottom: none;
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 770px) {
+  html{
+    font-size: 56%;
+  }
+  nav {
+    position: sticky;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+
+    & .mobile-logo {
+      display: block;
+    }
+
+    & ul {
+      justify-content: end;
+
+      & li {
+        padding-right: 1rem;
+
+        &.logo {
+          display: none;
+        }
+
+        &.nav-page {
+          display: none;
+        }
+
+        &.mobile-menu {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  html{
+    font-size: 50%;
+  }
+
+  body{
+    padding: 0 2rem;
+  }
+  .product-page {
+    display:flex;
+    flex-flow:column-reverse;
+    gap: 4rem;
   }
 }
