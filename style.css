@@ -1,0 +1,234 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "San Francisco";
+  display: flex;
+  flex-flow: column;
+  gap: 4.8rem;
+  align-items: strech;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 1.76rem;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.smaller {
+  transform: scale(.9);
+}
+
+.text {
+  font-size: 1.4rem;
+}
+
+.anchor-text {
+  font-size: 1.4rem;
+  color: #0066cc;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+nav {
+  & ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: small;
+    & li {
+      cursor: pointer;
+    }
+  }
+}
+
+.product-page {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  & .product-options {
+    display: flex;
+    flex-flow: column;
+    gap: 1.6rem;
+
+    & h1 {
+      font-size: 3.2rem;
+    }
+
+    & #price {
+      padding-bottom: 1.8rem;
+
+      & p:first-child {
+        font-size: 1.76rem;
+      }
+              & p,
+        a {
+          font-size: 1.28rem;
+        }
+    }
+
+    #options {
+      display: flex;
+      flex-flow: column;
+
+      & #color-selection {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1.6rem 0 1.2rem 0;
+
+        & label img {
+          width: 3.2rem;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+
+        label {
+          width: 4.3rem;
+          height: 4.3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+        }
+
+        & input[type="radio"]:checked + label {
+          border: solid 0.2rem #0066cc;
+        }
+      }
+
+      & .carbon-seal {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+
+        & img {
+          width: 2.5rem;
+        }
+      }
+
+      & h2:nth-of-type(2) {
+        margin-top: 3.5rem;
+      }
+
+      & .size-options {
+        display: flex;
+        gap: 1rem;
+
+        label {
+          flex-basis: 50%;
+          height: 8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: solid 0.2rem rgb(165, 165, 165);
+          border-radius: 1rem;
+          margin: 1rem 0;
+          cursor:pointer;
+        }
+
+        & input[type="radio"]:checked + label {
+          border: solid 0.2rem #0066cc;
+        }
+      }
+
+      & .size-text {
+        margin: 0.5rem 0 2rem 0;
+
+      }
+
+      & .bracelet-size{
+        margin-top:1rem;
+
+        & p:nth-child(2){
+          color:grey;
+        }
+      }
+
+      & .delivery-info{
+        display:flex; 
+        margin:3rem 0;
+        gap: 1rem;
+      }
+
+      & #add-to-cart{
+        font-size: 1.76rem;
+        color:white;
+        background-color:#0071E3;
+        font-family: "San Francisco";
+        border: none;
+        padding: .75rem 0;
+        border-radius: 1rem;
+        cursor:pointer;
+      }
+
+      & .save-selection{
+        margin: 3rem 0;
+        display:flex;
+        flex-flow:column;
+        gap: .5rem;
+
+        & p,
+        a {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  
+    
+  }
+  & #visualization{
+    display:flex;
+    flex-flow:column;
+    align-items:center;
+
+    & #select-img{
+      display:flex;
+      justify-content:center;
+      gap: .75rem;
+
+      & label > img{
+        width:5rem;
+        padding: .5rem;
+        padding-bottom: 1rem;
+        cursor: pointer;
+
+        &:hover{
+          border-bottom: solid 2px rgb(190, 190, 190);
+        }
+
+      }
+      & input[type="radio"]:checked + label>img{
+        border-bottom: solid 2px #8caccc;
+      }
+    }
+  }
+}
